@@ -1,0 +1,28 @@
+---
+- name: Change http port number
+  become: true
+  hosts: all
+  gather_facts: true
+  vars:
+   config_file: /etc/httpd/conf/httpd.conf
+  vars_files:
+   vars.yml
+
+  tasks:
+    - name: install webserver
+      yum:
+        name: httpd
+        state: present
+
+    - name: change http port
+      lineinfile:
+        dest: "{{ config_file }}"
+        regexp: '^Listen [0-9]{1,5}$'
+        line: "Listen {{ webport }}"
+      notify: restartweb
+
+  handlers:
+    - name: restartweb
+      service:
+        name: httpd
+        state: restarted
