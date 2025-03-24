@@ -1,0 +1,8 @@
+name1: "길동"
+
+names:
+  - "Youngsu"
+  - "Gwangsu"
+  - "Minsu"
+
+webport: "80"
