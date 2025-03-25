@@ -1,0 +1,5 @@
+[webservers]
+amazonln_host1 ansible_host=43.203.227.224 ansible_user=ec2-user
+amazonln_host2 ansible_host=43.203.253.203 ansible_user=ec2-user
+ubuntu_host1 ansible_host=43.201.58.253 ansible_user=ubuntu
+ubuntu_host2 ansible_host=3.38.255.172 ansible_user=ubuntu

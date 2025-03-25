@@ -1,0 +1,15 @@
+    - name: Ubuntu > nginx
+      action: "apt name=nginx state=present"
+      
+    - name: Ubuntu > index.html
+      get_url: url=https://www.daum.net dest=/var/www/html/index.html
+      
+    - name: Ubuntu > start nginx
+      service: name=nginx state=started
+
+    - name: Show Server IP
+      debug:
+        msg: [
+          "Node name is {{ ansible_nodename }}",
+          "Amazon Server IP is {{ ansible_default_ipv4.address }}"
+        ] 

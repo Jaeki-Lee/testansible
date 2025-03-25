@@ -1,0 +1,10 @@
+- name: web server install
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Debug package manager
+      debug:
+        msg: "Package manager is {{ ansible_pkg_mgr }}"
+
+    # ...existing code...
